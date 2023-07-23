@@ -1,3 +1,8 @@
-<h2>Header</h2>
+<script>
+  import Header from "$lib/Header.svelte";
+  import Footer from "$lib/Footer.svelte";
+</script>
+
+<Header/>
 <slot/>
-<h2>Footer</h2>
+<Footer/>
