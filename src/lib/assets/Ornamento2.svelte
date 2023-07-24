@@ -1,0 +1,10 @@
+<svg width="433" height="360" viewBox="0 0 433 360" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 100C0 44.7715 44.7715 0 100 0H433V360H100C44.7715 360 0 315.228 0 260V100Z" fill="var(--bg-2)"/></svg>
+
+<style>
+  svg {
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    z-index: -1;
+  }
+</style>
