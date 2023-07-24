@@ -1,5 +1,7 @@
 <script>
-  import logo from "$lib/assets/logo.png"
+  import logo from "$lib/assets/logo.png";
+  import { ShoppingCart, User2 } from 'lucide-svelte';
+	import IconeNotificacao from "$lib/assets/IconeNotificacao.svelte";
 </script>
 
 <header class="header">
@@ -10,9 +12,9 @@
       </a>
 
       <div class="btns">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
+        <button><ShoppingCart/></button>
+        <button><IconeNotificacao/></button>
+        <button><User2/></button>
       </div>
     </nav>
   </div>

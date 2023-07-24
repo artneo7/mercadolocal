@@ -23,6 +23,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/inter": "^5.0.5",
-		"@fontsource/short-stack": "^5.0.5"
+		"@fontsource/short-stack": "^5.0.5",
+		"lucide-svelte": "^0.263.0"
 	}
 }
