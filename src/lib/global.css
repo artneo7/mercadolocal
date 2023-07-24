@@ -1,3 +1,17 @@
+:root {
+  --fonte-primaria: 'Inter', sans-serif;
+  --fonte-secondaria: 'Short Stack', cursive;
+  --principal: #554444;
+  --principal-2: #887777;
+  --bg: #F8F4EC;
+  --bg-2: #E3E0D1;
+  --bg-hover: #DCD7C0;
+  --destaque: #0FA648;
+  --alt: #EA5D3E;
+  --lista: #FFFF99;
+  --modal: rgba(23, 15, 9, 0.55);
+}
+
 /* CSS reset */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -58,4 +72,18 @@ input[disabled] {
   cursor: not-allowed;
   background-color: var(--bg);
   color: var(--principal-2);
+}
+
+/* Classes */
+.container {
+  margin: auto;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+@media(max-width: 1000px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
