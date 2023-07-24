@@ -1,1 +1,1 @@
-<h2 class="container">Header</h2>
+<h2>Header</h2>
