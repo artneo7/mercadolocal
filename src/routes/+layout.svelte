@@ -6,10 +6,23 @@
   import Footer from "$lib/Footer.svelte";
 </script>
 
-<Header/>
-<main class="main">
-  <div class="main__container container">
-    <slot/>
-  </div>
-</main>
-<Footer/>
+<div class="app">
+  <Header/>
+  <main class="main">
+    <div class="main__container container">
+      <slot/>
+    </div>
+  </main>
+  <Footer/>
+</div>
+
+<style>
+  .app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  main {
+    margin-bottom: auto;
+  }
+</style>
