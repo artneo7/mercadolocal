@@ -1,16 +1,23 @@
 <script>
   import Marca from "$lib/assets/Marca.svelte";
   import { X, PlusCircle, MinusCircle } from 'lucide-svelte';
+  import { modal } from '$lib/stores';
 
   let nome = 'Maçã';
   let preco = '2,29';
   let metrica = 'unidade';
   let img = '/src/lib/assets/maca.jpg';
   let alt = 'Várias maçãs vermelhas';
+
+  // fechar modal
+  function fecharModal() {
+    $modal.aberto = false;
+  }
 </script>
 
+{#if $modal.aberto}
 <section class="modal">
-  <div class="modal__bg" aria-hidden="true"></div>
+  <div class="modal__bg" on:click={fecharModal} aria-hidden="true"></div>
   <div class="modal__container container">
     <div class="card">
       <div class="imagem__container">
@@ -41,10 +48,11 @@
         </div>
       </div>
 
-      <button class="fechar" title="Fechar"><X/></button>
+      <button on:click={fecharModal} class="fechar" title="Fechar"><X/></button>
     </div>
   </div>
 </section>
+{/if}
 
 <style>
   .modal {
