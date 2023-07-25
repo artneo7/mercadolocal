@@ -1,11 +1,11 @@
 <script>
   import padrao from "$lib/assets/maca.jpg"
 
-  let nome = 'Maçã';
-  let preco = '2,29';
-  let metrica = 'unidade';
-  let thumbnail = padrao;
-  let alt = 'Várias maçãs vermelhas';
+  export let nome = 'Maçã';
+  export let preco = '2,29';
+  export let metrica = 'unidade';
+  export let thumbnail = padrao;
+  export let alt = 'Várias maçãs vermelhas';
 </script>
 
 <button class="produto">

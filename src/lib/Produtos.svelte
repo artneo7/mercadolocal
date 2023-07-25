@@ -4,7 +4,7 @@
 </script>
 <section class="produtos">
   <Produto/>
-  <Produto/>
+  <Produto nome="Blueberry" preco="18,20" metrica="100g" thumbnail="src/lib/assets/blueberry.jpg" alt="Porção de blueberries" />
 </section>
 
 <style>
