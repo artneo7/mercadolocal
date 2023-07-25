@@ -11,3 +11,14 @@
     <Ornamento2/>
   </div>
 </section>
+
+<style>
+  .hero {
+    position: relative;
+  }
+  img {
+    height: 360px;
+    width: 100%;
+    object-fit: cover;
+  }
+</style>
