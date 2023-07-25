@@ -13,7 +13,16 @@
   function fecharModal() {
     $modal.aberto = false;
   }
+
+  // mostrar qual tecla foi pressionada
+  function teclaPressionada(evento) {
+    if (evento.key === 'Escape') {
+      fecharModal();
+    }
+  }
 </script>
+
+<svelte:window on:keyup={teclaPressionada} />
 
 {#if $modal.aberto}
 <section class="modal">
