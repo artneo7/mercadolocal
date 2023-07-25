@@ -4,6 +4,7 @@
   import '@fontsource/short-stack';
   import Header from "$lib/Header.svelte";
   import Footer from "$lib/Footer.svelte";
+	import Modal from '$lib/Modal.svelte';
 </script>
 
 <div class="app">
@@ -15,6 +16,8 @@
   </main>
   <Footer/>
 </div>
+
+<Modal/>
 
 <style>
   .app {
