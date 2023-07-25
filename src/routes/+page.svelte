@@ -5,8 +5,9 @@
 
 <div class="painel">
   <Hero/>
-  <Produtos/>
 </div>
+
+<Produtos/>
 
 <style>
   .painel {

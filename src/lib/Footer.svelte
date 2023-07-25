@@ -9,7 +9,6 @@
   .footer {
     position: relative;
     top: 66px;
-    background-color: pink;
   }
   .footer__container {
     display: flex;
