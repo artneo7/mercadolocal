@@ -1,10 +1,13 @@
 <script>
 	import Produto from "$lib/Produto.svelte";
 
+  export let produtos;
 </script>
+
 <section class="produtos">
-  <Produto/>
-  <Produto nome="Blueberry" preco="18,20" metrica="100g" thumbnail="src/lib/assets/blueberry.jpg" alt="Porção de blueberries" />
+  {#each produtos as produto}
+  <Produto nome={produto.nome} preco={produto.preco} metrica={produto.metrica} thumbnail={produto.thumbnail} alt={produto.alt} />
+  {/each}
 </section>
 
 <style>
