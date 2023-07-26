@@ -1,7 +1,7 @@
 <script>
   import Marca from "$lib/assets/Marca.svelte";
   import { X, PlusCircle, MinusCircle } from 'lucide-svelte';
-  import { modal } from '$lib/stores';
+  import { modal, lista } from '$lib/stores';
 
   $: nome = $modal.nome;
   $: preco = $modal.preco;
@@ -30,6 +30,19 @@
     if (quantidade <= 1) return;
     quantidade--;
   }
+
+  // adicionar produto ao pedido
+  function adicionarProduto() {
+    $lista.produtos = [...$lista.produtos,
+      {
+        nome,
+        quantidade,
+        preco,
+        metrica
+      }
+    ]
+  }
+  $: console.log($lista);
 </script>
 
 <svelte:window on:keyup={teclaPressionada} />
@@ -59,7 +72,7 @@
             <button on:click={aumentar}><PlusCircle/></button>
             <button on:click={diminuir}><MinusCircle/></button>
           </div>
-          <button class="btn">Adicionar ao pedido</button>
+          <button on:click={adicionarProduto} class="btn">Adicionar ao pedido</button>
         </div>
 
         <div class="marca">

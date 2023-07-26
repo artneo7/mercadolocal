@@ -1,6 +1,7 @@
 <script>
   import { ScrollText, BadgeDollarSign, UserCheck2, ExternalLink} from "lucide-svelte";
   import IconeWhatsapp from "$lib/assets/IconeWhatsapp.svelte";
+  import { lista } from "$lib/stores";
 </script>
 
 <section class="conteudo">
@@ -9,16 +10,18 @@
       <span>Lista</span>
     </h2>
    
+    {#if $lista.produtos.length}
     <div class="itens">
+      {#each $lista.produtos as item}
       <div class="item">
-        <span class="nome">10x Maçã (R$ 2,29/unidade)</span>
+        <span class="nome">{item.quantidade}x {item.nome} (R$ {item.preco}/{item.metrica})</span>
         <span class="separador"></span>
       </div>
-      <div class="item">
-        <span class="nome">10x Batata (R$ 10,69/kg)</span>
-        <span class="separador"></span>
-      </div>
+      {/each}
     </div>
+    {:else}
+    <p class="vazio">✍️ Nenhum item na lista ainda…</p>
+    {/if}
   </div>
 
   <div class="total">
@@ -114,6 +117,9 @@
     align-items: center;
     font-family: var(--fonte-primaria);
     transition: 250ms;
+  }
+  .vazio {
+    margin-top: 16px;
   }
 
   @media(hover: hover) {
