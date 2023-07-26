@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 
 export const modal = writable({
-  aberto: true,
+  aberto: false,
   nome: '',
   preco: '',
   metrica: '',

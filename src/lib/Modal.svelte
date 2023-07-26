@@ -3,11 +3,11 @@
   import { X, PlusCircle, MinusCircle } from 'lucide-svelte';
   import { modal } from '$lib/stores';
 
-  let nome = 'Maçã';
-  let preco = '2,29';
-  let metrica = 'unidade';
-  let img = '/src/lib/assets/maca.jpg';
-  let alt = 'Várias maçãs vermelhas';
+  $: nome = $modal.nome;
+  $: preco = $modal.preco;
+  $: metrica = $modal.metrica;
+  $: img = $modal.img;
+  $: alt = $modal.alt;
 
   // fechar modal
   function fecharModal() {

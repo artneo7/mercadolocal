@@ -1,14 +1,24 @@
 <script>
   import padrao from "$lib/assets/maca.jpg"
-
+  import { modal } from "$lib/stores";
   export let nome = 'Maçã';
   export let preco = '2,29';
   export let metrica = 'unidade';
+  export let img = padrao;
   export let thumbnail = padrao;
   export let alt = 'Várias maçãs vermelhas';
+
+  function abrirModal() {
+    $modal.aberto = true;
+    $modal.nome = nome;
+    $modal.preco = preco;
+    $modal.metrica = metrica;
+    $modal.img = img;
+    $modal.alt = alt;
+  }
 </script>
 
-<button class="produto">
+<button on:click={abrirModal} class="produto">
   <div class="produto__container">
     <img src={thumbnail} alt={alt}>
     <div class="conteudo">

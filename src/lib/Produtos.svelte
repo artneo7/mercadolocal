@@ -7,7 +7,7 @@
 {#if produtos}
 <section class="produtos">
   {#each produtos as produto}
-  <Produto nome={produto.nome} preco={produto.preco} metrica={produto.metrica} thumbnail={produto.thumbnail} alt={produto.alt} />
+  <Produto nome={produto.nome} preco={produto.preco} metrica={produto.metrica} img={produto.img} thumbnail={produto.thumbnail} alt={produto.alt} />
   {/each}
 </section>
 {:else}
