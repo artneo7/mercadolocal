@@ -3,6 +3,25 @@
   import IconeWhatsapp from "$lib/assets/IconeWhatsapp.svelte";
   import { lista } from "$lib/stores";
   import { calcularValor } from "$lib/helpers";
+
+  // calcular total do pedido
+  let total = 0;
+  function calcularTotal() {
+    total = 0;
+    $lista.produtos.forEach(produto => {
+      // transformar preço em número
+      let preco = Number(produto.preco.replace(',', '.'));
+      
+      // somar ao total
+      total = total + preco * produto.quantidade;
+    });
+
+    // transformar em string
+    total = total.toFixed(2).replace('.', ',');
+  }
+  
+  // toda vez que o pedido atualiza, recalcular o total
+  $: $lista.produtos.length && calcularTotal();
 </script>
 
 <section class="conteudo">
@@ -26,11 +45,15 @@
   </div>
 
   <div class="total">
+    {#if $lista.produtos.length}
     <h2 class="titulo"><BadgeDollarSign/> Total</h2>
     <div class="itens">
-      <p class="valor">R$ {calcularValor('2,29', 10)}</p>
-      <p class="valor__total">R$ 129,80</p>
+      {#each $lista.produtos as item}
+      <p class="valor">R$ {calcularValor(item.preco, item.quantidade)}</p>
+      {/each}
+      <p class="valor__total">R$ {total}</p>
     </div>
+    {/if}
   </div>
 
   <div class="dados">
