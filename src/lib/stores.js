@@ -8,3 +8,8 @@ export const modal = writable({
   img: '',
   alt: ''
 });
+
+export const lista = writable({
+  aberto: false,
+  produtos: []
+});
