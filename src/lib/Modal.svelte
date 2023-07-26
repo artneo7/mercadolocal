@@ -8,6 +8,7 @@
   $: metrica = $modal.metrica;
   $: img = $modal.img;
   $: alt = $modal.alt;
+  let quantidade = 1;
 
   // fechar modal
   function fecharModal() {
@@ -19,6 +20,15 @@
     if (evento.key === 'Escape') {
       fecharModal();
     }
+  }
+
+  // alterar quantidade
+  function aumentar() {
+    quantidade++;
+  }
+  function diminuir() {
+    if (quantidade <= 1) return;
+    quantidade--;
   }
 </script>
 
@@ -44,10 +54,10 @@
 
         <div class="quantidade__container">
           <label for="quantidade">Quantidade</label>
-          <input value="1" type="number" name="quantidade" id="quantidade">
+          <input bind:value={quantidade} type="number" name="quantidade" id="quantidade">
           <div class="btns">
-            <button><PlusCircle/></button>
-            <button><MinusCircle/></button>
+            <button on:click={aumentar}><PlusCircle/></button>
+            <button on:click={diminuir}><MinusCircle/></button>
           </div>
           <button class="btn">Adicionar ao pedido</button>
         </div>
