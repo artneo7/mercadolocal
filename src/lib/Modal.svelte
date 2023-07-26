@@ -42,7 +42,6 @@
       }
     ]
   }
-  $: console.log($lista);
 </script>
 
 <svelte:window on:keyup={teclaPressionada} />

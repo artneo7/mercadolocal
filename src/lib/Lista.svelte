@@ -2,6 +2,7 @@
   import { ScrollText, BadgeDollarSign, UserCheck2, ExternalLink} from "lucide-svelte";
   import IconeWhatsapp from "$lib/assets/IconeWhatsapp.svelte";
   import { lista } from "$lib/stores";
+  import { calcularValor } from "$lib/helpers";
 </script>
 
 <section class="conteudo">
@@ -27,8 +28,7 @@
   <div class="total">
     <h2 class="titulo"><BadgeDollarSign/> Total</h2>
     <div class="itens">
-      <p class="valor">R$ 22,90</p>
-      <p class="valor">R$ 106,90</p>
+      <p class="valor">R$ {calcularValor('2,29', 10)}</p>
       <p class="valor__total">R$ 129,80</p>
     </div>
   </div>
@@ -84,6 +84,10 @@
     display: block;
     flex-shrink: 0;
     font-size: calc(18 / 16 * 1rem);
+    max-width: 360px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .separador {
     width: 100%;
