@@ -34,14 +34,24 @@
 
   // adicionar produto ao pedido
   function adicionarProduto() {
-    $lista.produtos = [...$lista.produtos,
-      {
-        nome,
-        quantidade,
-        preco,
-        metrica
-      }
-    ]
+    const produtoExiste = $lista.produtos.findIndex((produto) => produto.nome === nome);
+
+    // caso exista, aumentar quantidade
+    if (produtoExiste !== -1) {
+      $lista.produtos[produtoExiste].quantidade += quantidade;
+    }
+    
+    // caso não exista, adicionar novo produto
+    if (produtoExiste === -1) {
+      $lista.produtos = [...$lista.produtos,
+        {
+          nome,
+          quantidade,
+          preco,
+          metrica
+        }
+      ]
+    }
   }
 </script>
 
