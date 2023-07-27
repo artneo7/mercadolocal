@@ -15,6 +15,7 @@ export const lista = writable({
 });
 
 export const dados = writable({
+  logado: false,
   aberto: false,
   nome: '',
   email: '',
