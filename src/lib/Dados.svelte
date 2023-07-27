@@ -1,5 +1,9 @@
+<script>
+  import Formulario from "$lib/Formulario.svelte";
+</script>
+
 <section class="dados">
-  <h1>Formulário</h1>
+  <Formulario/>
 </section>
 
 <style>
@@ -8,7 +12,7 @@
     top: 0;
     right: 0;
     background-color: #fff;
-    width: 50%;
+    width: 100%;
     height: 100%;
     padding: 32px 24px;
   }
