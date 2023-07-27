@@ -2,7 +2,7 @@
   import { ScrollText, BadgeDollarSign, UserCheck2, ExternalLink} from "lucide-svelte";
   import IconeWhatsapp from "$lib/assets/IconeWhatsapp.svelte";
   import { lista, dados } from "$lib/stores";
-  import { calcularValor } from "$lib/helpers";
+  import { calcularValor, enviarWhatsApp } from "$lib/helpers";
 
   // calcular total do pedido
   let total = 0;
@@ -75,9 +75,11 @@
     </div>
   </div>
 
+  {#if $lista.produtos.length && $dados.logado}
   <div class="enviar__container">
-    <a href="/" class="enviar" target="_blank">Enviar pedido <IconeWhatsapp/> <ExternalLink/></a>
+    <a href={enviarWhatsApp()} class="enviar" target="_blank">Enviar pedido <IconeWhatsapp/> <ExternalLink/></a>
   </div>
+  {/if}
 </section>
 
 <style>
