@@ -8,7 +8,7 @@
   }
 </script>
 
-<form on:submit={salvarDados}>
+<form on:submit|preventDefault={salvarDados}>
   <label for="nome">
     <span>Nome</span>
     <input bind:value={$dados.nome} type="text" name="nome" id="nome" required>
