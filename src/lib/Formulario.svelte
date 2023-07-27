@@ -1,49 +1,50 @@
 <script>
   import { CheckCircle, X } from 'lucide-svelte';
+  import { dados } from '$lib/stores';
+  
+  $: console.log($dados);
 </script>
 
 <form>
   <label for="nome">
     <span>Nome</span>
-    <input type="text" name="nome" id="nome" required>
+    <input bind:value={$dados.nome} type="text" name="nome" id="nome" required>
   </label>
 
   <label for="email">
     <span>E-mail</span>
-    <input type="email" name="email" id="email" required>
+    <input bind:value={$dados.email} type="email" name="email" id="email" required>
   </label>
 
   <label for="cep">
     <span>CEP</span>
-    <input type="cep" name="cep" id="cep" required>
+    <input bind:value={$dados.cep} type="cep" name="cep" id="cep" required>
   </label>
 
   <label for="numero">
     <span>Número / Complemento</span>
-    <input type="numero" name="numero" id="numero">
+    <input bind:value={$dados.numero} type="numero" name="numero" id="numero">
   </label>
 
   <label for="endereco">
     <span>Endereço</span>
-    <input type="endereco" name="endereco" id="endereco" required>
+    <input bind:value={$dados.endereco} type="endereco" name="endereco" id="endereco" required>
   </label>
 
   <label for="bairro">
     <span>Bairro</span>
-    <input type="bairro" name="bairro" id="bairro" required>
+    <input bind:value={$dados.bairro} type="bairro" name="bairro" id="bairro" required>
   </label>
 
   <label for="cidade">
     <span>Cidade</span>
-    <input type="cidade" name="cidade" id="cidade" required>
+    <input bind:value={$dados.cidade} type="cidade" name="cidade" id="cidade" required>
   </label>
 
   <label for="estado">
     <span>Estado</span>
-    <input type="estado" name="estado" id="estado" required>
+    <input bind:value={$dados.estado} type="estado" name="estado" id="estado" required>
   </label>
-
-  <button type="submit" class="btn btn--salvar" title="Salvar dados"><CheckCircle color="#fff"/></button>
 
   <button type="button" class="btn" title="Fechar"><X/></button>
 </form>
