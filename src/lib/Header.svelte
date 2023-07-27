@@ -2,6 +2,11 @@
   import logo from "$lib/assets/logo.png";
   import { ShoppingCart, User2 } from 'lucide-svelte';
 	import IconeNotificacao from "$lib/assets/IconeNotificacao.svelte";
+  import { lista } from "$lib/stores"
+  
+  function abrirLista() {
+    $lista.aberto = !$lista.aberto;
+  }
 </script>
 
 <header class="header">
@@ -12,7 +17,7 @@
       </a>
 
       <div class="btns">
-        <button><ShoppingCart/></button>
+        <button on:click={abrirLista}><ShoppingCart/></button>
         <button><IconeNotificacao/></button>
         <button><User2/></button>
       </div>
