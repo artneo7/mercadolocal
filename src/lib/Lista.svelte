@@ -77,7 +77,7 @@
 
   {#if $lista.produtos.length && $dados.logado}
   <div class="enviar__container">
-    <a href={enviarWhatsApp($dados, 'y', 'z')} class="enviar" target="_blank">Enviar pedido <IconeWhatsapp/> <ExternalLink/></a>
+    <a href={enviarWhatsApp($dados, $lista.produtos, total)} class="enviar" target="_blank">Enviar pedido <IconeWhatsapp/> <ExternalLink/></a>
   </div>
   {/if}
 </section>
