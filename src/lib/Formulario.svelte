@@ -6,6 +6,18 @@
   function salvarDados() {
     localStorage.setItem('dados', JSON.stringify($dados));
   }
+
+  // puxar endereço via cep
+  async function puxarEndereco(cep) {
+    const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    const resultado = await resposta.json();
+    $dados.endereco = resultado.logradouro;
+    $dados.bairro = resultado.bairro;
+    $dados.cidade = resultado.localidade;
+    $dados.estado = resultado.uf;
+  
+    return resultado;
+  }
 </script>
 
 <form on:submit|preventDefault={salvarDados}>
@@ -21,7 +33,7 @@
 
   <label for="cep">
     <span>CEP</span>
-    <input bind:value={$dados.cep} type="cep" name="cep" id="cep" required>
+    <input on:blur={puxarEndereco($dados.cep)} bind:value={$dados.cep} type="cep" name="cep" id="cep" required>
   </label>
 
   <label for="numero">
