@@ -1,9 +1,12 @@
 <script>
-  import { CheckCircle, X } from 'lucide-svelte';
+  import { CheckCircle, LogOut, X } from 'lucide-svelte';
   import { dados } from '$lib/stores';
 
   // salvar dados
   function salvarDados() {
+    // login
+    $dados.logado = true;
+    
     localStorage.setItem('dados', JSON.stringify($dados));
   }
 
@@ -22,6 +25,25 @@
   // fechar dados
   function fecharDados() {
     $dados.aberto = false;
+  }
+
+  // deletar dados
+  function deletarDados() {
+    // remover dados localStorage
+    localStorage.removeItem('dados');
+  
+    // logout
+    $dados.logado = false;
+  
+    // resetar dados
+    $dados.nome = '';
+    $dados.email = '';
+    $dados.cep = '';
+    $dados.numero = '';
+    $dados.endereco = '';
+    $dados.bairro = '';
+    $dados.cidade = '';
+    $dados.estado = '';
   }
 </script>
 
@@ -68,6 +90,8 @@
   
   <button type="submit" class="btn btn--salvar" title="Salvar dados"><CheckCircle color="#fff"/></button>
   
+  <button on:click={deletarDados} type="button" class="btn btn--deletar" title="Sair"><LogOut color="#fff"/></button>
+
   <button on:click={fecharDados} type="button" class="btn" title="Fechar"><X/></button>
 </form>
 
@@ -123,5 +147,13 @@
     content: '*';
     color: var(--alt);
     margin-left: 2px;
+  }
+  .btn--deletar {
+    background-color: var(--alt);
+    right: 48px;
+  }
+  .btn--deletar:hover {
+    background-color: var(--alt);
+    filter: brightness(1.05);
   }
 </style>
