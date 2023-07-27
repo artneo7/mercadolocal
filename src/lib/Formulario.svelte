@@ -18,6 +18,11 @@
   
     return resultado;
   }
+
+  // fechar dados
+  function fecharDados() {
+    $dados.aberto = false;
+  }
 </script>
 
 <form on:submit|preventDefault={salvarDados}>
@@ -63,7 +68,7 @@
   
   <button type="submit" class="btn btn--salvar" title="Salvar dados"><CheckCircle color="#fff"/></button>
   
-  <button type="button" class="btn" title="Fechar"><X/></button>
+  <button on:click={fecharDados} type="button" class="btn" title="Fechar"><X/></button>
 </form>
 
 <style>
