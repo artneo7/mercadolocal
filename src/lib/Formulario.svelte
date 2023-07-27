@@ -1,11 +1,14 @@
 <script>
   import { CheckCircle, X } from 'lucide-svelte';
   import { dados } from '$lib/stores';
-  
-  $: console.log($dados);
+
+  // salvar dados
+  function salvarDados() {
+    localStorage.setItem('dados', JSON.stringify($dados));
+  }
 </script>
 
-<form>
+<form on:submit={salvarDados}>
   <label for="nome">
     <span>Nome</span>
     <input bind:value={$dados.nome} type="text" name="nome" id="nome" required>
@@ -45,7 +48,9 @@
     <span>Estado</span>
     <input bind:value={$dados.estado} type="estado" name="estado" id="estado" required>
   </label>
-
+  
+  <button type="submit" class="btn btn--salvar" title="Salvar dados"><CheckCircle color="#fff"/></button>
+  
   <button type="button" class="btn" title="Fechar"><X/></button>
 </form>
 
