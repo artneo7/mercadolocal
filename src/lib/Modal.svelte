@@ -13,6 +13,7 @@
   // fechar modal
   function fecharModal() {
     $modal.aberto = false;
+    quantidade = 1;
   }
 
   // mostrar qual tecla foi pressionada
