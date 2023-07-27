@@ -12,8 +12,19 @@
     top: 0;
     right: 0;
     background-color: #fff;
-    width: 100%;
+    width: 50%;
     height: 100%;
     padding: 32px 24px;
+  }
+
+  @media(max-width: 1250px) {
+    .dados {
+      overflow-y: scroll;
+    }
+  }
+  @media(max-width: 800px) {
+    .dados {
+      width: 100%;
+    }
   }
 </style>

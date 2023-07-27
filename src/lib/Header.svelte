@@ -67,4 +67,14 @@
   button:hover {
     background-color: var(--bg-hover);
   }
+
+  @media(max-width: 500px) {
+    .btns {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      height: fit-content;
+    }
+  }
 </style>

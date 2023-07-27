@@ -181,4 +181,25 @@
       transition: 125ms;
     }
   }
+
+  @media(max-width: 1000px) {
+    .conteudo {
+      grid-template-columns: 1fr;
+      overflow-y: scroll;
+      margin: -1px;
+    }
+    .lista {
+      grid-column: unset;
+    }
+    .enviar__container {
+      position: unset;
+      width: fit-content;
+    }
+    .separador {
+      display: none;
+    }
+    .nome {
+      flex-shrink: unset;
+    }
+  }
 </style>
