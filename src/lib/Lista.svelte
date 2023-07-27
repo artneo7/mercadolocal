@@ -1,7 +1,7 @@
 <script>
   import { ScrollText, BadgeDollarSign, UserCheck2, ExternalLink} from "lucide-svelte";
   import IconeWhatsapp from "$lib/assets/IconeWhatsapp.svelte";
-  import { lista } from "$lib/stores";
+  import { lista, dados } from "$lib/stores";
   import { calcularValor } from "$lib/helpers";
 
   // calcular total do pedido
@@ -22,6 +22,11 @@
   
   // toda vez que o pedido atualiza, recalcular o total
   $: $lista.produtos.length && calcularTotal();
+
+  // abrir dados
+  function abrirDados() {
+    $dados.aberto = true;
+  }
 </script>
 
 <section class="conteudo">
@@ -59,6 +64,14 @@
   <div class="dados">
     <h2 class="titulo"><UserCheck2/> Dados</h2>
     <div class="itens">
+      {#if $dados.logado}
+      <p>{$dados.nome}</p>
+      <p>{$dados.endereco}, {$dados.numero}</p>
+      <p>{$dados.cidade}, {$dados.estado}</p>
+      <p>{$dados.cep}</p>
+      {:else}
+      <button on:click={abrirDados} class="btn">Insira os seus dados para enviar o pedido</button>
+      {/if}
     </div>
   </div>
 
@@ -147,6 +160,17 @@
   }
   .vazio {
     margin-top: 16px;
+  }
+  .btn {
+    font-family: var(--fonte-primaria);
+    font-size: calc(14 / 16 * 1rem);
+    background-color: var(--bg-2);
+    padding: 12px 16px;
+    align-self: flex-start;
+    transition: 125ms;
+  }
+  .btn:hover {
+    background-color: var(--bg-hover);
   }
 
   @media(hover: hover) {
