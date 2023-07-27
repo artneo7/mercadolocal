@@ -50,47 +50,49 @@
 <form on:submit|preventDefault={salvarDados}>
   <label for="nome">
     <span>Nome</span>
-    <input bind:value={$dados.nome} type="text" name="nome" id="nome" required>
+    <input bind:value={$dados.nome} type="text" name="nome" id="nome" required disabled={$dados.logado}>
   </label>
 
   <label for="email">
     <span>E-mail</span>
-    <input bind:value={$dados.email} type="email" name="email" id="email" required>
+    <input bind:value={$dados.email} type="email" name="email" id="email" required disabled={$dados.logado}>
   </label>
 
   <label for="cep">
     <span>CEP</span>
-    <input on:blur={puxarEndereco($dados.cep)} bind:value={$dados.cep} type="cep" name="cep" id="cep" required>
+    <input on:blur={puxarEndereco($dados.cep)} bind:value={$dados.cep} type="cep" name="cep" id="cep" required disabled={$dados.logado}>
   </label>
 
   <label for="numero">
     <span>Número / Complemento</span>
-    <input bind:value={$dados.numero} type="numero" name="numero" id="numero">
+    <input bind:value={$dados.numero} type="numero" name="numero" id="numero" disabled={$dados.logado}>
   </label>
 
   <label for="endereco">
     <span>Endereço</span>
-    <input bind:value={$dados.endereco} type="endereco" name="endereco" id="endereco" required>
+    <input bind:value={$dados.endereco} type="endereco" name="endereco" id="endereco" required disabled={$dados.logado}>
   </label>
 
   <label for="bairro">
     <span>Bairro</span>
-    <input bind:value={$dados.bairro} type="bairro" name="bairro" id="bairro" required>
+    <input bind:value={$dados.bairro} type="bairro" name="bairro" id="bairro" required disabled={$dados.logado}>
   </label>
 
   <label for="cidade">
     <span>Cidade</span>
-    <input bind:value={$dados.cidade} type="cidade" name="cidade" id="cidade" required>
+    <input bind:value={$dados.cidade} type="cidade" name="cidade" id="cidade" required disabled={$dados.logado}>
   </label>
 
   <label for="estado">
     <span>Estado</span>
-    <input bind:value={$dados.estado} type="estado" name="estado" id="estado" required>
+    <input bind:value={$dados.estado} type="estado" name="estado" id="estado" required disabled={$dados.logado}>
   </label>
   
-  <button type="submit" class="btn btn--salvar" title="Salvar dados"><CheckCircle color="#fff"/></button>
-  
+  {#if $dados.logado}
   <button on:click={deletarDados} type="button" class="btn btn--deletar" title="Sair"><LogOut color="#fff"/></button>
+  {:else}
+  <button type="submit" class="btn btn--salvar" title="Salvar dados"><CheckCircle color="#fff"/></button>
+  {/if}
 
   <button on:click={fecharDados} type="button" class="btn" title="Fechar"><X/></button>
 </form>

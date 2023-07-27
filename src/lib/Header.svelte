@@ -22,8 +22,11 @@
 
       <div class="btns">
         <button on:click={abrirLista}><ShoppingCart/></button>
+        {#if $dados.logado}
+        <button on:click={abrirDados}><User2/></button>
+        {:else}
         <button on:click={abrirDados}><IconeNotificacao/></button>
-        <button><User2/></button>
+        {/if}
       </div>
     </nav>
   </div>
