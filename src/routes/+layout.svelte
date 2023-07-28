@@ -25,6 +25,11 @@
   });
 </script>
 
+<svelte:head>
+  <title>Mercado Local</title>
+  <meta name="description" content="Aplicativo de pedidos via WhatsApp" />
+</svelte:head>
+
 <div class="app">
   <Header/>
   <main class="main">
