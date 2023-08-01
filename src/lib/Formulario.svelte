@@ -65,32 +65,32 @@
 
   <label for="cep">
     <span>CEP</span>
-    <input on:blur={puxarEndereco($dados.cep)} bind:value={$dados.cep} type="cep" name="cep" id="cep" required disabled={$dados.logado}>
+    <input on:blur={puxarEndereco($dados.cep)} bind:value={$dados.cep} type="text" name="cep" id="cep" required disabled={$dados.logado}>
   </label>
 
   <label for="numero">
     <span>Número / Complemento</span>
-    <input bind:value={$dados.numero} type="numero" name="numero" id="numero" disabled={$dados.logado}>
+    <input bind:value={$dados.numero} type="text" name="numero" id="numero" disabled={$dados.logado}>
   </label>
 
   <label for="endereco">
     <span>Endereço</span>
-    <input bind:value={$dados.endereco} type="endereco" name="endereco" id="endereco" required disabled={$dados.logado}>
+    <input bind:value={$dados.endereco} type="text" name="endereco" id="endereco" required disabled={$dados.logado}>
   </label>
 
   <label for="bairro">
     <span>Bairro</span>
-    <input bind:value={$dados.bairro} type="bairro" name="bairro" id="bairro" required disabled={$dados.logado}>
+    <input bind:value={$dados.bairro} type="text" name="bairro" id="bairro" required disabled={$dados.logado}>
   </label>
 
   <label for="cidade">
     <span>Cidade</span>
-    <input bind:value={$dados.cidade} type="cidade" name="cidade" id="cidade" required disabled={$dados.logado}>
+    <input bind:value={$dados.cidade} type="text" name="cidade" id="cidade" required disabled={$dados.logado}>
   </label>
 
   <label for="estado">
     <span>Estado</span>
-    <input bind:value={$dados.estado} type="estado" name="estado" id="estado" required disabled={$dados.logado}>
+    <input bind:value={$dados.estado} type="text" name="estado" id="estado" required disabled={$dados.logado}>
   </label>
   
   {#if $dados.logado}
