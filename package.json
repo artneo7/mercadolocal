@@ -24,6 +24,7 @@
 	"dependencies": {
 		"@fontsource/inter": "^5.0.5",
 		"@fontsource/short-stack": "^5.0.5",
-		"lucide-svelte": "^0.263.0"
+		"lucide-svelte": "^0.263.0",
+		"svelte-french-toast": "^1.2.0"
 	}
 }
