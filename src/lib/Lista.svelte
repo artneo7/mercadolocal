@@ -1,5 +1,5 @@
 <script>
-  import { ScrollText, BadgeDollarSign, UserCheck2, ExternalLink} from "lucide-svelte";
+  import { ScrollText, BadgeDollarSign, UserCheck2, ExternalLink, X} from "lucide-svelte";
   import IconeWhatsapp from "$lib/assets/IconeWhatsapp.svelte";
   import { lista, dados } from "$lib/stores";
   import { calcularValor, enviarWhatsApp } from "$lib/helpers";
@@ -27,12 +27,21 @@
   function abrirDados() {
     $dados.aberto = true;
   }
+
+  // resetar lista
+  function resetarLista() {
+    $lista.produtos = [];
+    total = 0;
+  }
 </script>
 
 <section class="conteudo">
   <div class="lista">
     <h2 class="titulo"><ScrollText/>
       <span>Lista</span>
+      {#if $lista.produtos.length}
+      <button on:click={resetarLista} class="resetar" title="Limpar lista"><X size={14} /> resetar</button>
+      {/if}
     </h2>
    
     {#if $lista.produtos.length}
@@ -173,6 +182,22 @@
   }
   .btn:hover {
     background-color: var(--bg-hover);
+  }
+  .resetar {
+    font-family: var(--fonte-primaria);
+    display: flex;
+    gap: 4px;
+    border: 1px solid var(--principal-2);
+    border-radius: 16px;
+    align-items: center;
+    font-size: calc(12 / 16 * 1rem);
+    padding: 4px 8px;
+    margin-left: 8px;
+    opacity: .8;
+    transition: 125ms;
+  }
+  .resetar:hover {
+    opacity: 1;
   }
 
   @media(hover: hover) {
